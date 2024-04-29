@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+<!-- =======================Fire======================= -->
+
+<!-- Audio credit to johanwesting @ Freesound.org; "377786__johanwestling__gun_22mm_75mm_9mm_close_single_shots_m10.wav" -->
+
+   <SoundDef>
+    <defName>Fire_BHP_Pistol</defName>  
+    <context>MapOnly</context> 
+    <eventNames />  
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>MMBHP/9mm</clipFolderPath>
+          </li>
+        </grains>      
+        <volumeRange>
+          <min>8.8</min>        
+          <max>10.2</max>
+        </volumeRange>      
+        <pitchRange>
+          <min>0.9</min>        
+          <max>1.1</max>
+        </pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+<!-- =======================Interact======================= -->
+
+<!-- Audio credit to serotonin @ Freesound.org; "674744__sertonin__browning-hi-power-handgun-being-cocked-5x.wav" -->
+
+   <SoundDef>
+    <defName>Interact_BHP_Pistol</defName>  
+    <context>MapOnly</context> 
+    <eventNames />  
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>MMBHP/Interact</clipFolderPath>
+          </li>
+        </grains>      
+        <volumeRange>
+          <min>11.8</min>        
+          <max>12.2</max>
+        </volumeRange>      
+        <pitchRange>
+          <min>0.99</min>        
+          <max>1.1</max>
+        </pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+<!-- =======================Impact======================= -->
+
+<!-- Audio credit to bone666138 @ Freesound.org; "Coin_Flip.wav" -->
+
+   <SoundDef>
+    <defName>Sound_Impact_SilverRush</defName>  
+    <context>MapOnly</context> 
+    <maxVoices>15</maxVoices>
+    <maxSimultaneous>3</maxSimultaneous>
+    <priorityMode>PrioritizeNearest</priorityMode>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>MMBHP/CoinFlips</clipFolderPath>
+          </li>
+        </grains>      
+        <volumeRange>
+          <min>1</min>        
+          <max>2</max>
+        </volumeRange>      
+        <pitchRange>
+          <min>0.8</min>        
+          <max>1.1</max>
+        </pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+<!-- Audio credit @ Freesound.org || FenrirFangs "coin_fall" 1, 2 & 3 || Andrew900460 @ Freesound.org "coinSounds.wav" || engreitz "Dropping_Coins_into_Plastic_Container.wav"-->
+
+  <SoundDef>
+    <defName>Coins_Fall</defName>  
+    <context>MapOnly</context>  
+    <maxVoices>15</maxVoices>
+    <maxSimultaneous>3</maxSimultaneous>
+    <priorityMode>PrioritizeNearest</priorityMode>
+    <subSounds>
+      <!--li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>Weapon/Artillery/Mortar_Explode_Dry</clipFolderPath>
+          </li>
+        </grains>      
+        <volumeRange>30.70588~34.05882</volumeRange>      
+        <pitchRange>0.8516304~1.254348</pitchRange>
+      </li-->
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>MMBHP/CoinFall</clipFolderPath>
+          </li>
+        </grains>     
+        <!--startDelayRange>0.7</startDelayRange--> 
+        <volumeRange>
+          <min>2</min>        
+          <max>3</max>
+        </volumeRange>      
+        <pitchRange>
+          <min>0.75</min>        
+          <max>1.25</max>
+        </pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+<!-- Audio credit @ Freesound.org || MadPanCake "Flashbang_Explode.ogg"-->
+
+  <SoundDef>
+    <defName>Coins_Explode</defName>  
+    <context>MapOnly</context>  
+    <maxSimultaneous>1</maxSimultaneous>  
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Folder">
+            <clipFolderPath>MMBHP/CoinExplosion</clipFolderPath>
+          </li>
+        </grains>     
+        <!--startDelayRange>0.7</startDelayRange--> 
+        <volumeRange>
+          <min>6</min>        
+          <max>8</max>
+        </volumeRange>      
+        <pitchRange>
+          <min>0.75</min>        
+          <max>1.25</max>
+        </pitchRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+</Defs>

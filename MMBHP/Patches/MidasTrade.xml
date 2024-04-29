@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+
+
+	<!--Operation Class="PatchOperationAdd">
+		<xpath>Defs/TraderKindDef[defName="Caravan_Outlander_BulkGoods" or defName="Caravan_Outlander_PirateMerchant"]/stockGenerators</xpath>
+		<value>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Ammo_40SW_MI</thingDef>
+				<countRange>
+					<min>1</min>
+					<max>3</max>
+				</countRange>
+			</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TraderKindDef[defName="Caravan_Outlander_CombatSupplier" or defName="Caravan_Outlander_Exotic"]/stockGenerators</xpath>
+		<value>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Ammo_40SW_MI</thingDef>
+				<countRange>
+					<min>2</min>
+					<max>6</max>
+				</countRange>
+			</li>
+		</value>
+	</Operation>
+
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TraderKindDef[defName="Orbital_BulkGoods" or defName="Orbital_PirateMerchant"]/stockGenerators</xpath>
+		<value>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Ammo_40SW_MI</thingDef>
+				<countRange>
+					<min>3</min>
+					<max>9</max>
+				</countRange>
+			</li>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/TraderKindDef[defName="Orbital_CombatSupplier" or defName="Orbital_Exotic"]/stockGenerators</xpath>
+		<value>
+			<li Class="StockGenerator_SingleDef">
+				<thingDef>Ammo_40SW_MI</thingDef>
+				<countRange>
+					<min>6</min>
+					<max>18</max>
+				</countRange>
+			</li>
+		</value>
+	</Operation-->
+
+</Patch>

@@ -1,0 +1,1029 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <!-- Weapon -->
+
+  <ThingDef ParentName="BaseModularWeapon">
+    <defName>MMBHP_CE</defName>
+    <label>Browning Hi-Power</label>
+    <description>Ancient semi-automatic pistol. Designed on old-Earth, this pistol saw service among many industrial militaries and was in production for over a century.</description>
+    <generateCommonality>0</generateCommonality>
+    <graphicData>
+      <texPath>bhp</texPath>
+      <graphicClass>ModularWeapons.Graphic_Modular</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_BHP_Pistol</soundInteract>
+    <recipeMaker>
+      <researchPrerequisite>BlowbackOperation</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>4</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <weaponTags Inherit="False">
+      <li>SimpleGun</li>
+      <li>Gun</li>
+      <li>ShortShots</li>
+      <li>Autopistol</li>
+      <li>CE_Sidearm</li>
+	    <li>CE_AI_BROOM</li>
+	    <li>CE_OneHandedWeapon</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>RangedLight</li>
+      <li>ShortShots</li>
+    </weaponClasses>
+    <statBases>
+      <Mass>1</Mass>
+      <RangedWeapon_Cooldown>0.38</RangedWeapon_Cooldown>
+      <SightsEfficiency>0.7</SightsEfficiency>
+      <ShotSpread>0.17</ShotSpread>
+      <SwayFactor>0.99</SwayFactor>
+      <Bulk>1.97</Bulk>
+      <WorkToMake>7000</WorkToMake>
+    </statBases>
+    <costList>
+      <Steel>25</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+    <verbs>
+      <li Class="CombatExtended.VerbPropertiesCE">
+        <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+        <recoilAmount>2.34</recoilAmount>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_9x19mmPara_FMJ</defaultProjectile>
+        <warmupTime>0.6</warmupTime>
+        <range>12</range>
+        <burstShotCount>5</burstShotCount>
+        <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+        <soundCast>Fire_BHP_Pistol</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>6</muzzleFlashScale>
+      </li>
+    </verbs>
+    <comps>
+      <li Class="ModularWeapons.CompProperties_ModularParts">
+        <compClass>ModularWeapons.CompModularParts</compClass>
+        <partKinds>
+          <li>BHP_Slide</li>
+          <li>BHP_Frame</li>
+          <li>BHP_Mag</li>
+          <li>BHP_Grip</li>
+          <li>BHP_Sight</li>
+          <li>BHP_Underbarrel</li>
+          <li>BHP_Muzzle</li>
+        </partKinds>
+        <majorKinds>
+          <li>BHP_Slide</li>
+          <li>BHP_Frame</li>
+          <li>BHP_Mag</li>
+        </majorKinds>
+        <defaultParts>
+          <li>BHP_Slide_Standard</li>
+          <li>BHP_Frame_Standard</li>
+          <li>BHP_Magazine_Standard</li>
+          <li>BHP_Grip_Wood</li>
+        </defaultParts>
+      </li>
+      <li Class="ModularWeapons_CEModule.CompProperties_AmmoUserMW">
+        <magazineSize>14</magazineSize>
+        <reloadTime>4</reloadTime>
+        <ammoSet>AmmoSet_9x19mmPara</ammoSet>
+      </li>
+      <li Class="ModularWeapons_CEModule.CompProperties_FireModesMW">
+        <aimedBurstShotCount>3</aimedBurstShotCount>
+        <aiUseBurstMode>FALSE</aiUseBurstMode>
+        <aiAimMode>Snapshot</aiAimMode>
+      </li>
+    </comps>
+    <tools>
+	  <li Class="CombatExtended.ToolCE">
+	  	<label>grip</label>
+	  	<capacities>
+	  		<li>Blunt</li>
+	  	</capacities>
+	  	<power>2</power>
+	  	<cooldownTime>1.54</cooldownTime>
+	  	<chanceFactor>1.5</chanceFactor>
+	  	<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+	  	<linkedBodyPartsGroup>Grip</linkedBodyPartsGroup>
+	  </li>
+	  <li Class="CombatExtended.ToolCE">
+	  	<label>muzzle</label>
+	  	<capacities>
+	  		<li>Poke</li>
+	  	</capacities>
+	  	<power>2</power>
+	  	<cooldownTime>1.54</cooldownTime>
+	  	<armorPenetrationBlunt>0.555</armorPenetrationBlunt>
+	  	<linkedBodyPartsGroup>Muzzle</linkedBodyPartsGroup>
+	  </li>
+    </tools>
+  </ThingDef>
+
+    <!-- ============================================================== Parts -->
+
+    <!-- =============================== Slides -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Slide_Standard</defName>
+    <label>Standard slide</label>
+    <description>Standard steel slide.</description>
+    <kind>BHP_Slide</kind>
+    <path>Slide_Standard</path>
+    <!--=====-->
+    <burstCountFactor>-4</burstCountFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <aimedBurstShotCount>-2</aimedBurstShotCount>
+      </li>
+    </additionalFactors>
+    <!--=====-->
+    <costList>
+      <Steel>5</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Slide_MP</defName>
+    <label>Machine pistol slide</label>
+    <description>Heavier steel slide assembly. 1200 RPM firerate. Has built-in compensator.</description>
+    <kind>BHP_Slide</kind>
+    <path>Slide_MP</path>
+    <!--=====-->
+    <cooldownFactor>-0.02</cooldownFactor>
+    <massFactor>0.18</massFactor>
+    <ticksBetweenShotsFactor>-1</ticksBetweenShotsFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <swayFactor>0.1</swayFactor>
+        <recoilAmount>-0.18</recoilAmount>
+      </li>
+    </additionalFactors>
+    <incompatibleKind>
+      <li>BHP_Muzzle</li>
+    </incompatibleKind>
+    <!--=====-->
+    <researchPrerequisites>
+      <li>BlowbackOperation</li>
+    </researchPrerequisites>
+    <costList>
+      <Steel>6</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Slide_Tactical</defName>
+    <label>Tactical slide</label>
+    <description>Heavier steel slide assembly. Capable of fully-automatic fire. Has built-in glow sights.</description>
+    <kind>BHP_Slide</kind>
+    <path>Slide_Tactical</path>
+    <!--=====-->
+    <cooldownFactor>-0.01</cooldownFactor>
+    <massFactor>0.15</massFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <swayFactor>0.05</swayFactor>
+        <recoilAmount>-0.16</recoilAmount>
+        <sightsEfficiency>0.05</sightsEfficiency>
+      </li>
+    </additionalFactors>
+    <!--=====-->
+    <researchPrerequisites>
+      <li>BlowbackOperation</li>
+    </researchPrerequisites>
+    <costList>
+      <Steel>6</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <!-- Special -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Slide_SilverRush</defName>
+    <label>Silver rush</label>
+    <description>Nickel-silver engraved slide with a gold accented trigger. Increases healing factor and social impact.\n\nA strange archotech presence is felt within this weapon; one of extreme wealth and casual cruelty.</description>
+    <kind>BHP_Slide</kind>
+    <path>Slide_SilverRush</path>
+    <!--=====-->
+    <incompatibleKind>
+      <li>BHP_Mag</li>
+      <li>BHP_Sight</li>
+      <li>BHP_Underbarrel</li>
+      <li>BHP_Muzzle</li>
+    </incompatibleKind>
+    <InjuryHealingFactor>1</InjuryHealingFactor>
+    <SocialImpactFactor>0.05</SocialImpactFactor>
+    <!--isRare>true</isRare-->
+    <warmupTimeFactor>-0.01</warmupTimeFactor>
+    <cooldownFactor>-0.04</cooldownFactor>
+    <ticksBetweenShotsFactor>-2</ticksBetweenShotsFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <overrideAmmoSet>AmmoSet_9x19mmParaSilver</overrideAmmoSet>
+        <swayFactor>-0.08</swayFactor>
+        <recoilAmount>-0.08</recoilAmount>
+        <sightsEfficiency>0.7</sightsEfficiency>
+      </li>
+    </additionalFactors>
+    <!--=====-->
+    <costList>
+      <Plasteel>25</Plasteel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+      <Silver>1250</Silver>
+      <Gold>5</Gold>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Slide_GoldStandard</defName>
+    <label>Gold standard</label>
+    <description>Engraved gold plated slide with a gold accented trigger. Extravagant, increases social impact and psychic sensitivity.\n\nA plasteel match barrel gives this pistol incredible accuracy and range.</description>
+    <kind>BHP_Slide</kind>
+    <path>Slide_GoldStandard</path>
+    <!--=====-->
+    <incompatibleKind>
+      <li>BHP_Mag</li>
+      <li>BHP_Sight</li>
+      <li>BHP_Underbarrel</li>
+      <li>BHP_Muzzle</li>
+    </incompatibleKind>
+    <PsychicSensitivityFactor>0.2</PsychicSensitivityFactor>
+    <SocialImpactFactor>0.1</SocialImpactFactor>
+    <!--isRare>true</isRare-->
+    <warmupTimeFactor>-0.02</warmupTimeFactor>
+    <cooldownFactor>-0.05</cooldownFactor>
+    <burstCountFactor>-4</burstCountFactor>
+    <rangeFactor>2</rangeFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+      <overrideAmmoSet>AmmoSet_40SWMidas</overrideAmmoSet>
+        <aimedBurstShotCount>-2</aimedBurstShotCount>
+        <swayFactor>-0.08</swayFactor>
+        <recoilAmount>-0.04</recoilAmount>
+        <sightsEfficiency>0.3</sightsEfficiency>
+      </li>
+    </additionalFactors>
+    <!--=====-->
+    <costList>
+      <Plasteel>25</Plasteel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+      <Gold>250</Gold>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+    <!-- =============================== Frames -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Frame_Standard</defName>
+    <label>Standard frame</label>
+    <description>Basic steel frame with a standard fire control.</description>
+    <kind>BHP_Frame</kind>
+    <path>Frame_Base</path>
+    <!--=====-->
+    <!--=====-->
+    <costList>
+      <Steel>1</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Frame_Artillery</defName>
+    <label>Machine pistol frame</label>
+    <description>Basic steel frame with a wooden stock. Excellent control but does now allow for single-handedness.</description>
+    <kind>BHP_Frame</kind>
+    <path>Frame_MP</path>
+    <!--=====-->
+    <massFactor>0.94</massFactor>
+    <rangeFactor>1</rangeFactor>
+    <cooldownFactor>-0.02</cooldownFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <swayFactor>-0.29</swayFactor>
+        <bulk>2.23</bulk>
+        <recoilAmount>-0.68</recoilAmount>
+        <sightsEfficiency>0.3</sightsEfficiency>
+      </li>
+    </additionalFactors>
+    <!--=====-->
+    <costList>
+      <Steel>2</Steel>
+      <WoodLog>5</WoodLog>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Frame_Tactical</defName>
+    <label>Tactical frame</label>
+    <description>Ergonomic polymer-steel frame.</description>
+    <kind>BHP_Frame</kind>
+    <path>Frame_Tac</path>
+    <!--=====-->
+    <incompatibleKind>
+      <li>BHP_Grip</li>
+    </incompatibleKind>
+    <massFactor>-0.05</massFactor>
+    <cooldownFactor>-0.01</cooldownFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <swayFactor>-0.02</swayFactor>
+        <recoilAmount>-0.03</recoilAmount>
+      </li>
+    </additionalFactors>
+    <!--=====-->
+    <costList>
+      <Steel>1</Steel>
+      <Chemfuel>4</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Frame_TacStock</defName>
+    <label>Tactical machine pistol frame</label>
+    <description>Tactical polymer-steel frame with folding stock. Excellent control but does now allow for single-handedness.</description>
+    <kind>BHP_Frame</kind>
+    <path>Frame_Tac_MP</path>
+    <!--=====-->
+    <incompatibleKind>
+      <li>BHP_Grip</li>
+    </incompatibleKind>
+    <massFactor>0.48</massFactor>
+    <rangeFactor>1</rangeFactor>
+    <cooldownFactor>-0.01</cooldownFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <swayFactor>-0.21</swayFactor>
+        <bulk>0.62</bulk>
+        <recoilAmount>-0.32</recoilAmount>
+        <sightsEfficiency>0.3</sightsEfficiency>
+      </li>
+    </additionalFactors>
+    <!--=====-->
+    <costList>
+      <Steel>2</Steel>
+      <Chemfuel>5</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <!-- Special -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Frame_SilverRush</defName>
+    <label>Silver rush</label>
+    <description>Nickel-silver engraved slide with lightweight plasteel alloy. Increases social impact and willpower.\n\nSomehow, possibly through ultratech meddling, these standard sized magazines can hold 47 rounds.</description>
+    <kind>BHP_Frame</kind>
+    <path>Frame_SilverRush</path>
+    <!--=====-->
+    <incompatibleKind>
+      <li>BHP_Mag</li>
+      <li>BHP_Sight</li>
+      <li>BHP_Underbarrel</li>
+      <li>BHP_Muzzle</li>
+    </incompatibleKind>
+    <massFactor>-0.1</massFactor>
+    <MentalBreakThresholdFactor>-0.06</MentalBreakThresholdFactor>
+    <SocialImpactFactor>0.1</SocialImpactFactor>
+    <!--isRare>true</isRare-->
+    <warmupTimeFactor>-0.01</warmupTimeFactor>
+    <cooldownFactor>-0.04</cooldownFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <swayFactor>-0.08</swayFactor>
+        <recoilAmount>-0.08</recoilAmount>
+        <magazineSize>33</magazineSize>
+      </li>
+    </additionalFactors>
+    <!--=====-->
+    <costList>
+      <ComponentIndustrial>2</ComponentIndustrial>
+      <Silver>1250</Silver>
+      <Plasteel>25</Plasteel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Frame_GoldStandard</defName>
+    <label>Gold Standard</label>
+    <description>Gold engraved slide with strong and lightweight plasteel alloy. Increases social impact and dissipates neural heat.\n\nRechambered for .40 S&amp;W along with a very peculiar cartridge.</description>
+    <kind>BHP_Frame</kind>
+    <path>Frame_GoldStandard</path>
+    <!--=====-->
+    <incompatibleKind>
+      <li>BHP_Mag</li>
+      <li>BHP_Sight</li>
+      <li>BHP_Underbarrel</li>
+      <li>BHP_Muzzle</li>
+    </incompatibleKind>
+    <massFactor>-0.05</massFactor>
+    <PsychicEntropyRecoveryRateFactor MayRequire="Ludeon.RimWorld.Royalty">0.02</PsychicEntropyRecoveryRateFactor>
+    <SocialImpactFactor>0.1</SocialImpactFactor>
+    <!--isRare>true</isRare-->
+    <warmupTimeFactor>-0.02</warmupTimeFactor>
+    <cooldownFactor>-0.05</cooldownFactor>
+    <rangeFactor>2</rangeFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <swayFactor>-0.08</swayFactor>
+        <recoilAmount>-0.08</recoilAmount>
+        <reloadTime>-0.1</reloadTime>
+      </li>
+    </additionalFactors>
+    <!--=====-->
+    <costList>
+      <ComponentIndustrial>2</ComponentIndustrial>
+      <Gold>250</Gold>
+      <Plasteel>25</Plasteel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+    <!-- =============================== Magazine -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Magazine_Standard</defName>
+    <label>Standard magazine</label>
+    <description>Steel 14-round double-stack magazine.</description>
+    <kind>BHP_Mag</kind>
+    <path>Mag_Standard</path>
+    <!--=====-->
+    <!--=====-->
+    <costList>
+      <Steel>1</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Magazine_Extended</defName>
+    <label>Extended magazine</label>
+    <description>Steel 22-round double-stack magazine.</description>
+    <kind>BHP_Mag</kind>
+    <path>Mag_Extended</path>
+    <!--=====-->
+    <massFactor>0.09</massFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <magazineSize>8</magazineSize>
+        <swayFactor>0.09</swayFactor>
+        <bulk>0.18</bulk>
+        <recoilAmount>-0.08</recoilAmount>
+        <reloadTime>0.08</reloadTime>
+      </li>
+    </additionalFactors>
+    <!--=====-->
+    <costList>
+      <Steel>3</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Magazine_Long</defName>
+    <label>Long magazine</label>
+    <description>Steel 36-round double-stack magazine.</description>
+    <kind>BHP_Mag</kind>
+    <path>Mag_Long</path>
+    <!--=====-->
+    <massFactor>0.17</massFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <magazineSize>22</magazineSize>
+        <swayFactor>0.18</swayFactor>
+        <bulk>0.35</bulk>
+        <recoilAmount>-0.16</recoilAmount>
+        <reloadTime>0.16</reloadTime>
+      </li>
+    </additionalFactors>
+    <!--=====-->
+    <costList>
+      <Steel>5</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <!-- tactical -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Magazine_TacExtended</defName>
+    <label>Extended tactical magazine</label>
+    <description>Polymer 24-round magazine. Slightly quicker reload.</description>
+    <kind>BHP_Mag</kind>
+    <path>Mag_tac_Extended</path>
+    <!--=====-->
+    <massFactor>0.06</massFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <magazineSize>10</magazineSize>
+        <swayFactor>0.05</swayFactor>
+        <bulk>0.11</bulk>
+        <recoilAmount>-0.04</recoilAmount>
+        <reloadTime>0.04</reloadTime>
+      </li>
+    </additionalFactors>
+    <!--=====-->
+    <costList>
+      <Steel>1</Steel>
+      <Chemfuel>3</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Magazine_TacLong</defName>
+    <label>Long tactical magazine</label>
+    <description>Steel 40-round magazine. Slightly quicker reload</description>
+    <kind>BHP_Mag</kind>
+    <path>Mag_tac_Long</path>
+    <!--=====-->
+    <massFactor>0.12</massFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <magazineSize>26</magazineSize>
+        <swayFactor>0.14</swayFactor>
+        <bulk>0.31</bulk>
+        <recoilAmount>-0.12</recoilAmount>
+        <reloadTime>0.08</reloadTime>
+      </li>
+    </additionalFactors>
+    <!--=====-->
+    <costList>
+      <Steel>1</Steel>
+      <Chemfuel>6</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+    <!-- =============================== Grips -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Grip_Wood</defName>
+    <label>Wood grip</label>
+    <description>Knurled wooden grip plates attaching to the sides of the frame.</description>
+    <kind>BHP_Grip</kind>
+    <path>Grip_Wood</path>
+    <!--=====-->
+    <!--=====-->
+    <costList>
+      <Steel>1</Steel>
+      <WoodLog>2</WoodLog>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Grip_Polymer</defName>
+    <label>polymer grip</label>
+    <description>Textured polymer grip plates attaching to the sides of the frame.</description>
+    <kind>BHP_Grip</kind>
+    <path>Grip_Polymer</path>
+    <!--=====-->
+    <!--=====-->
+    <costList>
+      <Steel>1</Steel>
+      <Chemfuel>2</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <!-- Special -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Grip_Endangered</defName>
+    <label>Endangered</label>
+    <description>Polished glassy smooth elephant ivory. Rare and expensive furniture reserved for high-ranking officers, rimworld despots and pirate lords.</description>
+    <kind>BHP_Grip</kind>
+    <path>Grip_Endangered</path>
+    <!--====-->
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <swayFactor>-0.02</swayFactor>
+        <recoilAmount>-0.02</recoilAmount>
+      </li>
+    </additionalFactors>
+    <warmupTimeFactor>-0.02</warmupTimeFactor>
+    <cooldownFactor>-0.02</cooldownFactor>
+    <HuntingStealthFactor>0.1</HuntingStealthFactor>
+    <SocialImpactFactor>0.05</SocialImpactFactor>
+    <!--isRare>true</isRare-->
+    <!--====-->
+    <costList>
+      <Steel>2</Steel>
+      <ElephantTusk>1</ElephantTusk>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Grip_GoldStandard</defName>
+    <label>Gold Standard</label>
+    <description>Stained and polished wood from an anima tree trimmed with gold. A tiny crest of unknown origin resides in the center of these exuberant grips.</description>
+    <kind>BHP_Grip</kind>
+    <path>Grip_GoldStandard</path>
+    <!--====-->
+    <PsychicEntropyMaxFactor MayRequire="Ludeon.RimWorld.Royalty">1</PsychicEntropyMaxFactor>
+    <SocialImpactFactor>0.15</SocialImpactFactor>
+    <!--isRare>true</isRare-->
+    <warmupTimeFactor>-0.02</warmupTimeFactor>
+    <cooldownFactor>-0.05</cooldownFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <swayFactor>-0.04</swayFactor>
+        <recoilAmount>-0.04</recoilAmount>
+      </li>
+    </additionalFactors>
+    <!--====-->
+    <costList>
+      <Steel>2</Steel>
+      <Gold>50</Gold>
+      <WoodLog>3</WoodLog>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+    <!-- =============================== Sights -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Sight_Glow</defName>
+    <label>Glow sights</label>
+    <description>Radioluminescent paint applied to this firearm's iron sights provides visibility in low light.</description>
+    <kind>BHP_Sight</kind>
+    <path>Sights_Glow</path>
+    <!--=====-->
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <sightsEfficiency>0.05</sightsEfficiency>
+      </li>
+    </additionalFactors>
+    <!--=====-->
+    <costList>
+      <Uranium>1</Uranium>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Sight_RedDot</defName>
+    <label>Red dot sight</label>
+    <description>Large but effective red dot sight allowing for increased accuracy and a slight decrease in aim-time.</description>
+    <kind>BHP_Sight</kind>
+    <path>Sights_RedDot</path>
+    <!--=====-->
+    <massFactor>0.01</massFactor>
+    <warmupTimeFactor>0.1</warmupTimeFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <sightsEfficiency>0.1</sightsEfficiency>
+        <swayFactor>0.04</swayFactor>
+        <bulk>0.02</bulk>
+        <recoilAmount>-0.01</recoilAmount>
+      </li>
+    </additionalFactors>
+    <!--=====-->
+    <costList>
+      <Steel>1</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Sight_Scope</defName>
+    <label>Pistol scope</label>
+    <description>Large but effective pistol scope allowing for increased accuracy with some delay.</description>
+    <kind>BHP_Sight</kind>
+    <path>Sights_Scope</path>
+    <!--=====-->
+    <rangeFactor>4</rangeFactor>
+    <massFactor>0.15</massFactor>
+    <warmupTimeFactor>0.15</warmupTimeFactor>
+    <cooldownFactor>-0.01</cooldownFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <sightsEfficiency>1.18</sightsEfficiency>
+        <swayFactor>0.27</swayFactor>
+        <bulk>0.3</bulk>
+        <recoilAmount>-0.13</recoilAmount>
+      </li>
+    </additionalFactors>
+    <!--=====-->
+    <costList>
+      <Steel>5</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Sight_TacRedDot</defName>
+    <label>Tactical red dot sight</label>
+    <description>Slim and effective red dot sight allowing for increased accuracy. Best paired with tactical slides.</description>
+    <kind>BHP_Sight</kind>
+    <path>Sights_tac_RedDot</path>
+    <!--=====-->
+    <massFactor>0.006</massFactor>
+    <warmupTimeFactor>0.08</warmupTimeFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <sightsEfficiency>0.11</sightsEfficiency>
+        <swayFactor>0.02</swayFactor>
+        <bulk>0.01</bulk>
+        <recoilAmount>-0.02</recoilAmount>
+      </li>
+    </additionalFactors>
+    <!--=====-->
+    <costList>
+      <Plasteel>1</Plasteel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Sight_TacScope</defName>
+    <label>Tactical pistol scope</label>
+    <description>Compact, effective pistol scope allowing for increased accuracy with little delay.</description>
+    <kind>BHP_Sight</kind>
+    <path>Sights_tac_Scope</path>
+    <!--=====-->
+    <rangeFactor>5</rangeFactor>
+    <massFactor>0.08</massFactor>
+    <warmupTimeFactor>0.12</warmupTimeFactor>
+    <cooldownFactor>-0.01</cooldownFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <sightsEfficiency>1.22</sightsEfficiency>
+        <swayFactor>0.14</swayFactor>
+        <bulk>0.15</bulk>
+        <recoilAmount>-0.08</recoilAmount>
+      </li>
+    </additionalFactors>
+    <!--=====-->
+    <costList>
+      <Plasteel>3</Plasteel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+    <!-- =============================== Underbarrel -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_UB_Grip</defName>
+    <label>Underbarrel grip</label>
+    <description>Thin retractable grip, helps slightly with recoil control.</description>
+    <kind>BHP_Underbarrel</kind>
+    <path>UB_Grip</path>
+    <!--=====-->
+    <massFactor>0.01</massFactor>
+    <warmupTimeFactor>-0.01</warmupTimeFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <swayFactor>0.15</swayFactor>
+        <recoilAmount>-0.18</recoilAmount>
+      </li>
+    </additionalFactors>
+    <!--=====-->
+    <costList>
+      <Steel>1</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_UB_Laser</defName>
+    <label>Underbarrel laser</label>
+    <description>Weak laser sight, helps with quicker target acquisition. Best paired with classic frames.</description>
+    <kind>BHP_Underbarrel</kind>
+    <path>UB_Laser</path>
+    <!--=====-->
+    <massFactor>0.02</massFactor>
+    <warmupTimeFactor>-0.05</warmupTimeFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <sightsEfficiency>0.1</sightsEfficiency>
+      </li>
+    </additionalFactors>
+    <!--=====-->
+    <costList>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_UB_Flashlight</defName>
+    <label>Underbarrel flashlight</label>
+    <description>Weak flashlight, blinds enemies. Best paired with classic frames.</description>
+    <kind>BHP_Underbarrel</kind>
+    <path>UB_Flashlight</path>
+    <!--=====-->
+    <massFactor>0.02</massFactor>
+    <flashlightFactor>true</flashlightFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <sightsEfficiency>0.05</sightsEfficiency>
+      </li>
+    </additionalFactors>
+    <!--=====-->
+    <costList>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_UB_TacLaser</defName>
+    <label>Tactical laser</label>
+    <description>Laser sight, helps with quicker target acquisition. Best paired with tactical frames.</description>
+    <kind>BHP_Underbarrel</kind>
+    <path>UB_tac_Laser</path>
+    <!--=====-->
+    <massFactor>0.02</massFactor>
+    <warmupTimeFactor>-0.07</warmupTimeFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <sightsEfficiency>0.15</sightsEfficiency>
+      </li>
+    </additionalFactors>
+    <!--=====-->
+    <costList>
+      <Plasteel>1</Plasteel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_UB_TacFlashlight</defName>
+    <label>Underbarrel flashlight</label>
+    <description>Flashlight, blinds enemies and helps with target acquisition. Best paired with tactical frames.</description>
+    <kind>BHP_Underbarrel</kind>
+    <path>UB_tac_Flashlight</path>
+    <!--=====-->
+    <massFactor>0.02</massFactor>
+    <flashlightFactor>true</flashlightFactor>
+    <warmupTimeFactor>-0.05</warmupTimeFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <sightsEfficiency>0.09</sightsEfficiency>
+      </li>
+    </additionalFactors>
+    <!--=====-->
+    <costList>
+      <Plasteel>1</Plasteel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_UB_TacGrip</defName>
+    <label>Underbarrel tactical grip</label>
+    <description>Large polymer grip, helps with recoil control. Has a mounted flashlight, laser sight and magazine well for faster reloading.</description>
+    <kind>BHP_Underbarrel</kind>
+    <path>UB_Tac_Grip</path>
+    <!--=====-->
+    <massFactor>0.11</massFactor>
+    <warmupTimeFactor>-0.12</warmupTimeFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <swayFactor>0.22</swayFactor>
+        <bulk>0.15</bulk>
+        <recoilAmount>-0.23</recoilAmount>
+        <sightsEfficiency>0.2</sightsEfficiency>
+        <reloadTime>-0.08</reloadTime>
+      </li>
+    </additionalFactors>
+    <!--=====-->
+    <costList>
+      <Plasteel>3</Plasteel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+      <Chemfuel>4</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+    <!-- =============================== Muzzle -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Muzzle_Compensator</defName>
+    <label>Basic compensator</label>
+    <description>Redirects propellant gasses as they leave the barrel, reducing felt recoil.</description>
+    <kind>BHP_Muzzle</kind>
+    <path>Barrel_Compensator</path>
+    <!--=====-->
+    <massFactor>0.02</massFactor>
+    <cooldownFactor>-0.01</cooldownFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <swayFactor>-0.04</swayFactor>
+        <bulk>0.04</bulk>
+        <recoilAmount>-0.12</recoilAmount>
+      </li>
+    </additionalFactors>  
+    <!--=====-->
+    <costList>
+      <Steel>1</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Muzzle_Extended</defName>
+    <label>Basic barrel extension</label>
+    <description>Basic muzzle extension; slightly increases range and damage.</description>
+    <kind>BHP_Muzzle</kind>
+    <path>Barrel_Ext</path>
+    <!--=====-->
+    <dmgMultiplierFactor>0.1</dmgMultiplierFactor>
+    <massFactor>0.15</massFactor>
+    <rangeFactor>2</rangeFactor>
+    <cooldownFactor>-0.01</cooldownFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <shotSpread>-0.02</shotSpread>
+        <swayFactor>0.11</swayFactor>
+        <bulk>0.23</bulk>
+        <recoilAmount>-0.02</recoilAmount>
+      </li>
+    </additionalFactors>
+    <!--=====-->
+    <costList>
+      <Steel>2</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Muzzle_Suppressor</defName>
+    <label>Basic suppressor</label>
+    <description>Basic muzzle suppressor; increases hunting stealth.</description>
+    <kind>BHP_Muzzle</kind>
+    <path>Barrel_Silencer</path>
+    <!--=====-->
+    <dmgMultiplierFactor>-0.1</dmgMultiplierFactor>
+    <massFactor>0.07</massFactor>
+    <HuntingStealthFactor>0.2</HuntingStealthFactor>
+    <cooldownFactor>-0.01</cooldownFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <swayFactor>0.06</swayFactor>
+        <bulk>0.32</bulk>
+      </li>
+    </additionalFactors>
+    <!--=====-->
+    <costList>
+      <Steel>2</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+    <!--  tactical -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Muzzle_TacCompensator</defName>
+    <label>Tactical compensator</label>
+    <description>Redirects propellant gasses as they leave the barrel, reducing felt recoil.</description>
+    <kind>BHP_Muzzle</kind>
+    <path>Barrel_tac_Compensator</path>
+    <!--=====-->
+    <massFactor>0.012</massFactor>
+    <cooldownFactor>-0.02</cooldownFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <swayFactor>-0.08</swayFactor>
+        <bulk>0.04</bulk>
+        <recoilAmount>-0.15</recoilAmount>
+      </li>
+    </additionalFactors>  
+    <!--=====-->
+    <costList>
+      <Plasteel>1</Plasteel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Muzzle_TacExtended</defName>
+    <label>Tactical barrel extension</label>
+    <description>Tactical muzzle extension; slightly increases range and damage.</description>
+    <kind>BHP_Muzzle</kind>
+    <path>Barrel_tac_Extended</path>
+    <!--=====-->
+    <dmgMultiplierFactor>0.1</dmgMultiplierFactor>
+    <massFactor>0.13</massFactor>
+    <rangeFactor>3</rangeFactor>
+    <cooldownFactor>-0.02</cooldownFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <shotSpread>-0.03</shotSpread>
+        <swayFactor>0.08</swayFactor>
+        <bulk>0.1</bulk>
+        <recoilAmount>-0.02</recoilAmount>
+      </li>
+    </additionalFactors>
+    <!--=====-->
+    <costList>
+      <Plasteel>2</Plasteel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Muzzle_TacSuppressor</defName>
+    <label>Tactical suppressor</label>
+    <description>Tactical muzzle suppressor; increases hunting stealth.</description>
+    <kind>BHP_Muzzle</kind>
+    <path>Barrel_tac_Suppressor</path>
+    <!--=====-->
+    <massFactor>0.05</massFactor>
+    <HuntingStealthFactor>0.25</HuntingStealthFactor>
+    <cooldownFactor>-0.01</cooldownFactor>
+    <additionalFactors>
+      <li Class="ModularWeapons_CEModule.MWP_CEStats">
+        <swayFactor>0.03</swayFactor>
+        <bulk>0.25</bulk>
+      </li>
+    </additionalFactors>
+    <!--=====-->
+    <costList>
+      <Plasteel>2</Plasteel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+</Defs>

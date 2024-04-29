@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <!-- Basics - Gunsmithing -->
+
+    <!-- Basic Pistol -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>BHP_Basic</defName>
+    <customName>Basic handgun</customName>
+    <weapon>MMBHP_LightHandgun</weapon>
+    <weaponTags>
+        <li>SimpleGun</li>
+        <li>ShortShots</li>
+    </weaponTags>
+    <requiredParts>
+      <li>BHP_Slide_Standard</li>
+      <li>BHP_Frame_Standard</li>
+      <li>BHP_Magazine_Standard</li>
+      <li>BHP_Grip_Wood</li>
+    </requiredParts>
+    <optionalPartsCount>0</optionalPartsCount>
+    <optionalParts>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+    <!-- Standard Pistol -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>BHP_Standard</defName>
+    <customName>Custom handgun</customName>
+    <weapon>MMBHP_LightHandgun</weapon>
+    <weaponTags>
+        <li>Gun</li>
+        <li>Autopistol</li>
+        <li>ShortShots</li>
+    </weaponTags>
+    <requiredParts>
+      <li>BHP_Slide_Standard</li>
+      <li>BHP_Frame_Standard</li>
+      <li>BHP_Magazine_Standard</li>
+      <li>BHP_Grip_Wood</li>
+    </requiredParts>
+    <optionalPartsCount>5</optionalPartsCount>
+    <optionalParts>
+      <li>BHP_Magazine_Extended</li>
+      <li>BHP_Magazine_Long</li>
+      <li>BHP_Magazine_JHP</li>
+      <li>BHP_Grip_Polymer</li>
+      <li>BHP_Sight_Glow</li>
+      <li>BHP_Sight_RedDot</li>
+      <li>BHP_Sight_Scope</li>
+      <li>BHP_UB_Laser</li>
+      <li>BHP_UB_Flashlight</li>
+      <li>BHP_Muzzle_Compensator</li>
+      <li>BHP_Muzzle_Extended</li>
+      <li>BHP_Muzzle_Suppressor</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+    <!-- Tactical Pistol -->
+  <ModularWeapons.GunsmithPresetDef>
+    <defName>BHP_Tactical</defName>
+    <customName>Tactical handgun</customName>
+    <weapon>MMBHP_LightHandgun</weapon>
+    <weaponTags>
+        <li>IndustrialGunAdvanced</li>
+        <li>ShortShots</li>
+    </weaponTags>
+    <requiredParts>
+      <li>BHP_Slide_Tactical</li>
+      <li>BHP_Frame_Tactical</li>
+      <li>BHP_Magazine_JHP</li>
+    </requiredParts>
+    <optionalPartsCount>0</optionalPartsCount>
+    <optionalParts>
+      <li>BHP_Magazine_Extended_JHP</li>
+      <li>BHP_Magazine_Long_JHP</li>
+      <li>BHP_Magazine_PlusP</li>
+      <li>BHP_Magazine_Extended_PlusP</li>
+      <li>BHP_Magazine_Long_PlusP</li>
+      <li>BHP_Sight_TacRedDot</li>
+      <li>BHP_Sight_TacScope</li>
+      <li>BHP_UB_TacFlashlight</li>
+      <li>BHP_Muzzle_TacCompensator</li>
+      <li>BHP_Muzzle_TacExtended</li>
+      <li>BHP_Muzzle_TacSuppressor</li>
+    </optionalParts>
+  </ModularWeapons.GunsmithPresetDef>
+
+</Defs>

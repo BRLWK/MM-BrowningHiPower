@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ModMetaData>
+	<name>Mini Modulars - BHP</name>
+	<author>Bx395</author>
+	<packageId>Bx395.MiniModulars.BHP</packageId>
+    <supportedVersions>
+	<li>1.4</li>
+	</supportedVersions>
+	<description>[Vanilla] Adds a customizable 9mm pistol, lighter and faster than the vanilla autopistol.\n\n[CE] Adds the Browning Hi-Power, a versatile and classic sidearm.</description>
+	<loadAfter>
+		<li>kaitorisenkou.ModularWeapons</li>
+		<li>CETeam.CombatExtended</li>
+	</loadAfter>
+</ModMetaData>

@@ -1,0 +1,1032 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <!-- Projectiles -->
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_BHP_9mmFMJ</defName>
+    <label>handgun bullet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>7</damageAmountBase>
+      <speed>65</speed>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_BHP_9mmJHP</defName>
+    <label>handgun JHP</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>10</damageAmountBase>
+      <speed>68</speed>
+      <armorPenetrationBase>0.15</armorPenetrationBase>
+      <stoppingPower>1</stoppingPower>
+    </projectile>
+  </ThingDef>
+
+  <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_BHP_9mmPlusP</defName>
+    <label>overpressure bullet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>13</damageAmountBase>
+      <speed>71</speed>
+      <armorPenetrationBase>0.18</armorPenetrationBase>
+      <stoppingPower>1.5</stoppingPower>
+    </projectile>
+  </ThingDef>
+
+    <!-- Weapon -->
+
+  <ThingDef ParentName="BaseModularWeapon">
+    <defName>MMBHP_LightHandgun</defName>
+    <label>Light handgun</label>
+    <description>Ancient pattern blowback-operated self-loading pistol. Even lighter than a standard autopistol but is extremely quick to fire.</description>
+    <graphicData>
+      <texPath>bhp</texPath>
+      <graphicClass>ModularWeapons.Graphic_Modular</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_BHP_Pistol</soundInteract>
+    <recipeMaker>
+      <researchPrerequisite>Gunsmithing</researchPrerequisite>
+      <skillRequirements>
+        <Crafting>2</Crafting>
+      </skillRequirements>
+    </recipeMaker>
+    <weaponTags Inherit="False">
+      <li>SimpleGun</li>
+      <li>Gun</li>
+      <li>ShortShots</li>
+      <li>Autopistol</li>
+    </weaponTags>
+    <weaponClasses>
+      <li>RangedLight</li>
+      <li>ShortShots</li>
+    </weaponClasses>
+    <statBases>
+      <WorkToMake>4500</WorkToMake>
+      <Mass>1</Mass>
+      <AccuracyTouch>0.68</AccuracyTouch>
+      <AccuracyShort>0.63</AccuracyShort>
+      <AccuracyMedium>0.38</AccuracyMedium>
+      <AccuracyLong>0.23</AccuracyLong>
+      <RangedWeapon_Cooldown>0.7</RangedWeapon_Cooldown>
+    </statBases>
+    <comps>
+      <li Class="ModularWeapons.CompProperties_ModularParts">
+        <compClass>ModularWeapons.CompModularParts</compClass>
+        <partKinds>
+          <li>BHP_Slide</li>
+          <li>BHP_Frame</li>
+          <li>BHP_Mag</li>
+          <li>BHP_Grip</li>
+          <li>BHP_Sight</li>
+          <li>BHP_Underbarrel</li>
+          <li>BHP_Muzzle</li>
+        </partKinds>
+        <majorKinds>
+          <li>BHP_Slide</li>
+          <li>BHP_Frame</li>
+          <li>BHP_Mag</li>
+        </majorKinds>
+        <defaultParts>
+          <li>BHP_Slide_Standard</li>
+          <li>BHP_Frame_Standard</li>
+          <li>BHP_Magazine_Standard</li>
+          <li>BHP_Grip_Wood</li>
+        </defaultParts>
+      </li>
+    </comps>
+    <costList>
+      <WoodLog>3</WoodLog>
+      <Steel>26</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>Bullet_BHP_9mmFMJ</defaultProjectile>
+        <warmupTime>0.27</warmupTime>
+        <range>21.9</range>
+        <soundCast>Fire_BHP_Pistol</soundCast>
+        <soundCastTail>GunTail_Light</soundCastTail>
+        <muzzleFlashScale>6</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>grip</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9</power>
+        <cooldownTime>2</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef>
+
+    <!-- ============================================================== Parts -->
+
+    <!-- =============================== Slides -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Slide_Standard</defName>
+    <label>Standard slide</label>
+    <description>Standard steel slide.</description>
+    <kind>BHP_Slide</kind>
+    <path>Slide_Standard</path>
+    <!--=====-->
+    <!--=====-->
+    <costList>
+      <Steel>11</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Slide_SilverRush</defName>
+    <label>Silver rush</label>
+    <description>Nickel-silver engraved slide with a gold accented trigger. Increases healing factor and social impact.</description>
+    <kind>BHP_Slide</kind>
+    <path>Slide_SilverRush</path>
+    <!--=====-->
+    <incompatibleKind>
+      <li>BHP_Mag</li>
+      <li>BHP_Sight</li>
+      <li>BHP_Underbarrel</li>
+      <li>BHP_Muzzle</li>
+    </incompatibleKind>
+    <InjuryHealingFactor>1</InjuryHealingFactor>
+    <SocialImpactFactor>0.05</SocialImpactFactor>
+    <!--isRare>true</isRare-->
+    <AccTouchFactor>0.03</AccTouchFactor>
+    <AccShortFactor>0.03</AccShortFactor>
+    <AccMediumFactor>0.02</AccMediumFactor>
+    <AccLongFactor>0.01</AccLongFactor>
+    <warmupTimeFactor>-0.02</warmupTimeFactor>
+    <cooldownFactor>-0.1</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Steel>11</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <Silver>750</Silver>
+      <Gold>5</Gold>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Slide_GoldStandard</defName>
+    <label>Gold standard</label>
+    <description>Engraved gold plated slide with a gold accented trigger. Extravagant, increases social impact and psychic sensitivity.</description>
+    <kind>BHP_Slide</kind>
+    <path>Slide_GoldStandard</path>
+    <!--=====-->
+    <incompatibleKind>
+      <li>BHP_Mag</li>
+      <li>BHP_Sight</li>
+      <li>BHP_Underbarrel</li>
+      <li>BHP_Muzzle</li>
+    </incompatibleKind>
+    <PsychicSensitivityFactor>0.2</PsychicSensitivityFactor>
+    <SocialImpactFactor>0.1</SocialImpactFactor>
+    <!--isRare>true</isRare-->
+    <AccTouchFactor>0.03</AccTouchFactor>
+    <AccShortFactor>0.03</AccShortFactor>
+    <AccMediumFactor>0.02</AccMediumFactor>
+    <AccLongFactor>0.01</AccLongFactor>
+    <warmupTimeFactor>-0.02</warmupTimeFactor>
+    <cooldownFactor>-0.05</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Steel>11</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <Gold>250</Gold>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Slide_Maria</defName>
+    <label>Maria</label>
+    <description>Engraved nickel treated slide with a gold accents. Increases social impact, pain shock threshhold and move speed.\n\nWell worn from decades of use, whoever wields this weapon isn't a stranger to conflict.</description>
+    <kind>BHP_Slide</kind>
+    <path>Slide_Maria</path>
+    <!--=====-->
+    <incompatibleKind>
+      <li>BHP_Mag</li>
+      <li>BHP_Sight</li>
+      <li>BHP_Underbarrel</li>
+      <li>BHP_Muzzle</li>
+    </incompatibleKind>
+    <MoveSpeedFactor>0.08</MoveSpeedFactor>
+    <PainShockThresholdFactor>0.15</PainShockThresholdFactor>
+    <SocialImpactFactor>0.05</SocialImpactFactor>
+    <!--isRare>true</isRare-->
+    <AccTouchFactor>0.04</AccTouchFactor>
+    <AccShortFactor>0.04</AccShortFactor>
+    <AccMediumFactor>0.03</AccMediumFactor>
+    <AccLongFactor>0.02</AccLongFactor>
+    <warmupTimeFactor>-0.02</warmupTimeFactor>
+    <cooldownFactor>-0.1</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Steel>11</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <Gold>150</Gold>
+      <Silver>750</Silver>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Slide_Tactical</defName>
+    <label>Tactical slide</label>
+    <description>Heavier steel slide assembly. Decreases rate of fire with higher accuracy.</description>
+    <kind>BHP_Slide</kind>
+    <path>Slide_Tactical</path>
+    <!--=====-->
+    <AccTouchFactor>0.03</AccTouchFactor>
+    <AccShortFactor>0.03</AccShortFactor>
+    <AccMediumFactor>0.02</AccMediumFactor>
+    <AccLongFactor>0.02</AccLongFactor>
+    <massFactor>0.11</massFactor>
+    <warmupTimeFactor>0.2</warmupTimeFactor>
+    <cooldownFactor>0.3</cooldownFactor>
+    <!--=====-->
+    <researchPrerequisites>
+      <li>BlowbackOperation</li>
+    </researchPrerequisites>
+    <costList>
+      <Steel>20</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+    <!-- =============================== Frames -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Frame_Standard</defName>
+    <label>Standard frame</label>
+    <description>Basic steel frame with a standard fire control.</description>
+    <kind>BHP_Frame</kind>
+    <path>Frame_Base</path>
+    <costList>
+      <Steel>11</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Frame_SilverRush</defName>
+    <label>Silver rush</label>
+    <description>Nickel-silver engraved slide with lightweight plasteel alloy. Increases social impact and willpower. Standard double-stack magazines are loaded with JHP ammunition.</description>
+    <kind>BHP_Frame</kind>
+    <path>Frame_SilverRush</path>
+    <!--=====-->
+    <incompatibleKind>
+      <li>BHP_Mag</li>
+      <li>BHP_Sight</li>
+      <li>BHP_Underbarrel</li>
+      <li>BHP_Muzzle</li>
+    </incompatibleKind>
+    <massFactor>-0.05</massFactor>
+    <MentalBreakThresholdFactor>-0.06</MentalBreakThresholdFactor>
+    <SocialImpactFactor>0.1</SocialImpactFactor>
+    <!--isRare>true</isRare-->
+    <AccTouchFactor>0.02</AccTouchFactor>
+    <AccShortFactor>0.02</AccShortFactor>
+    <AccMediumFactor>0.01</AccMediumFactor>
+    <warmupTimeFactor>-0.03</warmupTimeFactor>
+    <cooldownFactor>-0.1</cooldownFactor>
+    <projectileFactor>Bullet_BHP_9mmJHP</projectileFactor>
+    <!--=====-->
+    <costList>
+      <Steel>11</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <Silver>750</Silver>
+      <Plasteel>5</Plasteel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Frame_GoldStandard</defName>
+    <label>Gold Standard</label>
+    <description>Gold engraved slide with strong and lightweight plasteel alloy. Extravagant, increases social impact and dissipates neural heat.\n\nMagazines are loaded with overpressure handgun ammunition.</description>
+    <kind>BHP_Frame</kind>
+    <path>Frame_GoldStandard</path>
+    <!--=====-->
+    <incompatibleKind>
+      <li>BHP_Mag</li>
+      <li>BHP_Sight</li>
+      <li>BHP_Underbarrel</li>
+      <li>BHP_Muzzle</li>
+    </incompatibleKind>
+    <massFactor>-0.05</massFactor>
+    <PsychicEntropyRecoveryRateFactor MayRequire="Ludeon.RimWorld.Royalty">0.02</PsychicEntropyRecoveryRateFactor>
+    <SocialImpactFactor>0.1</SocialImpactFactor>
+    <!--isRare>true</isRare-->
+    <AccTouchFactor>0.03</AccTouchFactor>
+    <AccShortFactor>0.03</AccShortFactor>
+    <AccMediumFactor>0.02</AccMediumFactor>
+    <AccLongFactor>0.01</AccLongFactor>
+    <warmupTimeFactor>-0.02</warmupTimeFactor>
+    <cooldownFactor>-0.05</cooldownFactor>
+    <projectileFactor>Bullet_BHP_9mmPlusP</projectileFactor>
+    <!--=====-->
+    <costList>
+      <Steel>11</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <Gold>250</Gold>
+      <Plasteel>10</Plasteel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Frame_Maria</defName>
+    <label>Maria</label>
+    <description>Gold engraved nickel treated slide with a gold accented trigger. Increases social impact, decreases incoming damage.\n\n"Renaissance" engraving firearms varies from mass-manufacture to esteemed artisan works. The design on this pistol seems to be of the latter.</description>
+    <kind>BHP_Frame</kind>
+    <path>Frame_Maria</path>
+    <!--=====-->
+    <incompatibleKind>
+      <li>BHP_Mag</li>
+      <li>BHP_Sight</li>
+      <li>BHP_Underbarrel</li>
+      <li>BHP_Muzzle</li>
+    </incompatibleKind>
+    <massFactor>0.05</massFactor>
+    <IncomingDamageFactor>-0.15</IncomingDamageFactor>
+    <SocialImpactFactor>0.05</SocialImpactFactor>
+    <!--isRare>true</isRare-->
+    <AccTouchFactor>0.04</AccTouchFactor>
+    <AccShortFactor>0.04</AccShortFactor>
+    <AccMediumFactor>0.03</AccMediumFactor>
+    <AccLongFactor>0.02</AccLongFactor>
+    <warmupTimeFactor>-0.02</warmupTimeFactor>
+    <cooldownFactor>-0.1</cooldownFactor>
+    <projectileFactor>Bullet_BHP_9mmPlusP</projectileFactor>
+    <!--=====-->
+    <costList>
+      <Steel>11</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <Silver>750</Silver>
+      <Gold>75</Gold>
+      <Plasteel>5</Plasteel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Frame_Tactical</defName>
+    <label>Tactical frame</label>
+    <description>Ergonomic polymer-steel frame with tuned fire control.</description>
+    <kind>BHP_Frame</kind>
+    <path>Frame_Tac</path>
+    <!--=====-->
+    <incompatibleKind>
+      <li>BHP_Grip</li>
+    </incompatibleKind>
+    <AccTouchFactor>0.03</AccTouchFactor>
+    <AccShortFactor>0.03</AccShortFactor>
+    <AccMediumFactor>0.02</AccMediumFactor>
+    <AccLongFactor>0.02</AccLongFactor>
+    <massFactor>-0.05</massFactor>
+    <cooldownFactor>-0.1</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Chemfuel>12</Chemfuel>
+      <Steel>14</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+    <!-- =============================== Magazine -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Magazine_Standard</defName>
+    <label>Standard magazine</label>
+    <description>Steel double-stack magazine filled with FMJ ammunition.</description>
+    <kind>BHP_Mag</kind>
+    <path>Mag_Standard</path>
+    <costList>
+      <Steel>4</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Magazine_Extended</defName>
+    <label>Extended magazine</label>
+    <description>Extended steel double-stack magazine filled with FMJ ammunition.</description>
+    <kind>BHP_Mag</kind>
+    <path>Mag_Extended</path>
+    <!--=====-->
+    <AccTouchFactor>-0.12</AccTouchFactor>
+    <AccShortFactor>-0.17</AccShortFactor>
+    <AccMediumFactor>-0.23</AccMediumFactor>
+    <AccLongFactor>-0.29</AccLongFactor>
+    <massFactor>0.19</massFactor>
+    <warmupTimeFactor>-0.05</warmupTimeFactor>
+    <cooldownFactor>-0.1</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Steel>17</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Magazine_Long</defName>
+    <label>Long magazine</label>
+    <description>Large double-stack magazine filled with FMJ ammunition.</description>
+    <kind>BHP_Mag</kind>
+    <path>Mag_Long</path>
+    <!--=====-->
+    <AccTouchFactor>-0.24</AccTouchFactor>
+    <AccShortFactor>-0.29</AccShortFactor>
+    <AccMediumFactor>-0.34</AccMediumFactor>
+    <AccLongFactor>-0.39</AccLongFactor>
+    <massFactor>0.26</massFactor>
+    <warmupTimeFactor>-0.1</warmupTimeFactor>
+    <cooldownFactor>-0.2</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Steel>24</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+    <!-- JHP -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Magazine_JHP</defName>
+    <label>JHP magazine</label>
+    <description>Standard steel double-stack magazine filled with JHP ammunition.\n\nJacketed Hollow-Point; increased damage without complete bullet deformation against tougher materials.</description>
+    <kind>BHP_Mag</kind>
+    <path>Mag_Standard_PlusP</path>
+    <!--=====-->
+    <AccTouchFactor>0.12</AccTouchFactor>
+    <AccShortFactor>0.07</AccShortFactor>
+    <AccMediumFactor>0.02</AccMediumFactor>
+    <AccLongFactor>0.07</AccLongFactor>
+    <warmupTimeFactor>0.03</warmupTimeFactor>
+    <cooldownFactor>0.3</cooldownFactor>
+    <projectileFactor>Bullet_BHP_9mmJHP</projectileFactor>
+    <rangeFactor>4</rangeFactor>
+    <!--=====-->
+    <researchPrerequisites>
+      <li>BlowbackOperation</li>
+    </researchPrerequisites>
+    <costList>
+      <Steel>20</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <Chemfuel>25</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Magazine_Extended_JHP</defName>
+    <label>Extended JHP magazine</label>
+    <description>Extended steel double-stack magazine filled with JHP ammunition.</description>
+    <kind>BHP_Mag</kind>
+    <path>Mag_Extended_PlusP</path>
+    <!--=====-->
+    <AccTouchFactor>-0.07</AccTouchFactor>
+    <AccShortFactor>-0.10</AccShortFactor>
+    <AccMediumFactor>-0.18</AccMediumFactor>
+    <AccLongFactor>-0.24</AccLongFactor>
+    <massFactor>0.19</massFactor>
+    <warmupTimeFactor>0.01</warmupTimeFactor>
+    <cooldownFactor>0.2</cooldownFactor>
+    <projectileFactor>Bullet_BHP_9mmJHP</projectileFactor>
+    <!--=====-->
+    <researchPrerequisites>
+      <li>BlowbackOperation</li>
+    </researchPrerequisites>
+    <costList>
+      <Steel>29</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <Chemfuel>35</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Magazine_Long_JHP</defName>
+    <label>Long JHP magazine</label>
+    <description>Large double-stack magazine filled with JHP ammunition.</description>
+    <kind>BHP_Mag</kind>
+    <path>Mag_Long_PlusP</path>
+    <!--=====-->
+    <AccTouchFactor>-0.19</AccTouchFactor>
+    <AccShortFactor>-0.24</AccShortFactor>
+    <AccMediumFactor>-0.29</AccMediumFactor>
+    <AccLongFactor>-0.34</AccLongFactor>
+    <massFactor>0.26</massFactor>
+    <warmupTimeFactor>0.06</warmupTimeFactor>
+    <cooldownFactor>0.1</cooldownFactor>
+    <projectileFactor>Bullet_BHP_9mmJHP</projectileFactor>
+    <!--=====-->
+    <researchPrerequisites>
+      <li>BlowbackOperation</li>
+    </researchPrerequisites>
+    <costList>
+      <Steel>40</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <Chemfuel>50</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+    <!-- +P+ -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Magazine_PlusP</defName>
+    <label>Overpressure magazine</label>
+    <description>Standard steel double-stack magazine filled with +P ammunition.\n\nOverpressure; higher velocity than standard ammunition for increased damage, has significant recoil.</description>
+    <kind>BHP_Mag</kind>
+    <path>Mag_Standard</path>
+    <!--=====-->
+    <warmupTimeFactor>0.1</warmupTimeFactor>
+    <cooldownFactor>1</cooldownFactor>
+    <projectileFactor>Bullet_BHP_9mmPlusP</projectileFactor>
+    <!--=====-->
+    <researchPrerequisites>
+      <li>BlowbackOperation</li>
+    </researchPrerequisites>
+    <costList>
+      <Steel>30</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <Chemfuel>35</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Magazine_Extended_PlusP</defName>
+    <label>Extended overpressure magazine</label>
+    <description>Extended steel double-stack magazine filled with +P ammunition.</description>
+    <kind>BHP_Mag</kind>
+    <path>Mag_tac_Extended</path>
+    <!--=====-->
+    <AccTouchFactor>-0.01</AccTouchFactor>
+    <AccShortFactor>-0.01</AccShortFactor>
+    <AccMediumFactor>-0.02</AccMediumFactor>
+    <AccLongFactor>-0.03</AccLongFactor>
+    <massFactor>0.21</massFactor>
+    <warmupTimeFactor>0.06</warmupTimeFactor>
+    <cooldownFactor>0.7</cooldownFactor>
+    <projectileFactor>Bullet_BHP_9mmPlusP</projectileFactor>
+    <!--=====-->
+    <researchPrerequisites>
+      <li>BlowbackOperation</li>
+    </researchPrerequisites>
+    <costList>
+      <Steel>29</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <Chemfuel>35</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Magazine_Long_PlusP</defName>
+    <label>Long overpressure magazine</label>
+    <description>Large double-stack magazine filled with +P ammunition.</description>
+    <kind>BHP_Mag</kind>
+    <path>Mag_tac_Long</path>
+    <!--=====-->
+    <AccTouchFactor>-0.02</AccTouchFactor>
+    <AccShortFactor>-0.02</AccShortFactor>
+    <AccMediumFactor>-0.03</AccMediumFactor>
+    <AccLongFactor>-0.04</AccLongFactor>
+    <massFactor>0.25</massFactor>
+    <warmupTimeFactor>0.02</warmupTimeFactor>
+    <cooldownFactor>0.3</cooldownFactor>
+    <projectileFactor>Bullet_BHP_9mmPlusP</projectileFactor>
+    <!--=====-->
+    <researchPrerequisites>
+      <li>BlowbackOperation</li>
+    </researchPrerequisites>
+    <costList>
+      <Steel>40</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+      <Chemfuel>50</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+    <!-- =============================== Grips -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Grip_Wood</defName>
+    <label>Wood grip</label>
+    <description>Knurled wooden grip plates attaching to the sides of the frame.</description>
+    <kind>BHP_Grip</kind>
+    <path>Grip_Wood</path>
+    <costList>
+      <Steel>2</Steel>
+      <WoodLog>3</WoodLog>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Grip_Polymer</defName>
+    <label>polymer grip</label>
+    <description>Textured polymer grip plates attaching to the sides of the frame.</description>
+    <kind>BHP_Grip</kind>
+    <path>Grip_Polymer</path>
+    <costList>
+      <Steel>2</Steel>
+      <Chemfuel>6</Chemfuel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Grip_Endangered</defName>
+    <label>Endangered</label>
+    <description>Polished, glassy smooth elephant ivory. Rare and expensive furniture reserved for high-ranking officers, rimworld despots and pirate lords.</description>
+    <kind>BHP_Grip</kind>
+    <path>Grip_Endangered</path>
+    <!--====-->
+    <AccTouchFactor>0.01</AccTouchFactor>
+    <AccShortFactor>0.01</AccShortFactor>
+    <AccMediumFactor>0.02</AccMediumFactor>
+    <AccLongFactor>0.03</AccLongFactor>
+    <warmupTimeFactor>-0.02</warmupTimeFactor>
+    <cooldownFactor>-0.05</cooldownFactor>
+    <HuntingStealthFactor>0.1</HuntingStealthFactor>
+    <SocialImpactFactor>0.05</SocialImpactFactor>
+    <!--isRare>true</isRare-->
+    <!--====-->
+    <costList>
+      <Steel>2</Steel>
+      <ElephantTusk>1</ElephantTusk>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Grip_GoldStandard</defName>
+    <label>Gold Standard</label>
+    <description>Stained and polished wood from an anima tree trimmed with gold. A tiny crest of unknown origin resides in the center of these exuberant grips.</description>
+    <kind>BHP_Grip</kind>
+    <path>Grip_GoldStandard</path>
+    <!--====-->
+    <PsychicEntropyMaxFactor MayRequire="Ludeon.RimWorld.Royalty">1</PsychicEntropyMaxFactor>
+    <SocialImpactFactor>0.15</SocialImpactFactor>
+    <!--isRare>true</isRare-->
+    <AccTouchFactor>0.02</AccTouchFactor>
+    <AccShortFactor>0.02</AccShortFactor>
+    <AccMediumFactor>0.01</AccMediumFactor>
+    <AccLongFactor>0.01</AccLongFactor>
+    <warmupTimeFactor>-0.02</warmupTimeFactor>
+    <cooldownFactor>-0.05</cooldownFactor>
+    <!--====-->
+    <costList>
+      <Steel>2</Steel>
+      <Gold>50</Gold>
+      <WoodLog>3</WoodLog>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Grip_Maria</defName>
+    <label>Maria</label>
+    <description>Well-worn mother of pearl grips painted with a portrait the Ordo Historia identifies as either Our Lady of Guadalupe, The Virgin Mary, the Woman of the Apoclaypse; or conversely all three. Ancient figure(s) of old-Earth Catholicism.</description>
+    <kind>BHP_Grip</kind>
+    <path>Grip_Maria</path>
+    <!--====-->
+    <StaggerDurationFactor>-0.9</StaggerDurationFactor>
+    <SocialImpactFactor>0.05</SocialImpactFactor>
+    <!--isRare>true</isRare-->
+    <AccTouchFactor>0.04</AccTouchFactor>
+    <AccShortFactor>0.04</AccShortFactor>
+    <AccMediumFactor>0.03</AccMediumFactor>
+    <AccLongFactor>0.02</AccLongFactor>
+    <warmupTimeFactor>-0.02</warmupTimeFactor>
+    <cooldownFactor>-0.1</cooldownFactor>
+    <!--====-->
+    <costList>
+      <Silver>3</Silver>
+      <Gold>3</Gold>
+      <ElephantTusk>3</ElephantTusk>
+      <Dye>3</Dye>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+    <!-- =============================== Sights -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Sight_Glow</defName>
+    <label>Glow sights</label>
+    <description>Radioluminescent paint applied to this firearm's iron sights provides visibility in low light.</description>
+    <kind>BHP_Sight</kind>
+    <path>Sights_Glow</path>
+    <!--=====-->
+    <AccTouchFactor>0.001</AccTouchFactor>
+    <AccShortFactor>0.002</AccShortFactor>
+    <AccMediumFactor>0.02</AccMediumFactor>
+    <AccLongFactor>0.03</AccLongFactor>
+    <warmupTimeFactor>-0.03</warmupTimeFactor>
+    <cooldownFactor>-0.06</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Uranium>1</Uranium>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <!--ModularWeapons.ModularPartDef>
+    <defName>BHP_Sight_Tac_Glow</defName>
+    <label>Tactical glow sights</label>
+    <description>Radioluminescent paint applied to this firearm's iron sights provides visibility in low light. Best when used with the tactical slide.</description>
+    <kind>BHP_Sight</kind>
+    <path>Sights_tac_Glow</path>
+
+    <AccTouchFactor>0.001</AccTouchFactor>
+    <AccShortFactor>0.002</AccShortFactor>
+    <AccMediumFactor>0.02</AccMediumFactor>
+    <AccLongFactor>0.03</AccLongFactor>
+    <warmupTimeFactor>-0.05</warmupTimeFactor>
+    <cooldownFactor>-0.08</cooldownFactor>
+
+    <costList>
+      <Uranium>1</Uranium>
+    </costList>
+  </ModularWeapons.ModularPartDef-->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Sight_RedDot</defName>
+    <label>Red dot sight</label>
+    <description>Large but effective red dot sight allowing for increased accuracy with a small amount of delay.</description>
+    <kind>BHP_Sight</kind>
+    <path>Sights_RedDot</path>
+    <!--=====-->
+    <massFactor>0.21</massFactor>
+    <AccTouchFactor>0.02</AccTouchFactor>
+    <AccShortFactor>0.03</AccShortFactor>
+    <AccMediumFactor>-0.01</AccMediumFactor>
+    <AccLongFactor>-0.02</AccLongFactor>
+    <warmupTimeFactor>0.05</warmupTimeFactor>
+    <cooldownFactor>0.1</cooldownFactor>
+    <rangeFactor>2</rangeFactor>
+    <!--=====-->
+    <costList>
+      <Steel>8</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Sight_Scope</defName>
+    <label>Pistol scope</label>
+    <description>Large but effective pistol scope allowing for increased accuracy with some delay.</description>
+    <kind>BHP_Sight</kind>
+    <path>Sights_Scope</path>
+    <!--=====-->
+    <massFactor>0.33</massFactor>
+    <AccTouchFactor>0.04</AccTouchFactor>
+    <AccShortFactor>0.06</AccShortFactor>
+    <AccMediumFactor>0.04</AccMediumFactor>
+    <AccLongFactor>0.02</AccLongFactor>
+    <warmupTimeFactor>0.1</warmupTimeFactor>
+    <cooldownFactor>0.2</cooldownFactor>
+    <rangeFactor>4</rangeFactor>
+    <!--=====-->
+    <costList>
+      <Steel>15</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Sight_TacRedDot</defName>
+    <label>Tactical red dot sight</label>
+    <description>Slim and effective red dot sight allowing for increased accuracy. Best paired with tactical slides.</description>
+    <kind>BHP_Sight</kind>
+    <path>Sights_tac_RedDot</path>
+    <!--=====-->
+    <massFactor>0.13</massFactor>
+    <AccTouchFactor>0.03</AccTouchFactor>
+    <AccShortFactor>0.04</AccShortFactor>
+    <AccMediumFactor>-0.03</AccMediumFactor>
+    <AccLongFactor>-0.05</AccLongFactor>
+    <warmupTimeFactor>0.02</warmupTimeFactor>
+    <cooldownFactor>0.08</cooldownFactor>
+    <rangeFactor>2</rangeFactor>
+    <!--=====-->
+    <researchPrerequisites>
+      <li>MicroelectronicsBasics</li>
+    </researchPrerequisites>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Sight_TacScope</defName>
+    <label>Tactical pistol scope</label>
+    <description>Compact, effective pistol scope allowing for increased accuracy with little delay.</description>
+    <kind>BHP_Sight</kind>
+    <path>Sights_tac_Scope</path>
+    <!--=====-->
+    <massFactor>0.33</massFactor>
+    <AccTouchFactor>0.06</AccTouchFactor>
+    <AccShortFactor>0.08</AccShortFactor>
+    <AccMediumFactor>0.06</AccMediumFactor>
+    <AccLongFactor>0.04</AccLongFactor>
+    <warmupTimeFactor>0.1</warmupTimeFactor>
+    <cooldownFactor>0.2</cooldownFactor>
+    <rangeFactor>4</rangeFactor>
+    <!--=====-->
+    <researchPrerequisites>
+      <li>MicroelectronicsBasics</li>
+    </researchPrerequisites>
+    <costList>
+      <Steel>20</Steel>
+      <ComponentIndustrial>3</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+    <!-- =============================== Underbarrel -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_UB_Laser</defName>
+    <label>Underbarrel laser</label>
+    <description>Weak laser sight, helps with quicker target acquisition. Best paired with classic frames.</description>
+    <kind>BHP_Underbarrel</kind>
+    <path>UB_Laser</path>
+    <!--=====-->
+    <massFactor>0.11</massFactor>
+    <warmupTimeFactor>-0.1</warmupTimeFactor>
+    <rangeFactor>1</rangeFactor>
+    <!--=====-->
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_UB_Flashlight</defName>
+    <label>Underbarrel flashlight</label>
+    <description>Weak flashlight, blinds enemies. Best paired with classic frames.</description>
+    <kind>BHP_Underbarrel</kind>
+    <path>UB_Flashlight</path>
+    <!--=====-->
+    <massFactor>0.11</massFactor>
+    <flashlightFactor>true</flashlightFactor>
+    <!--=====-->
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_UB_TacLaser</defName>
+    <label>Tactical laser</label>
+    <description>Laser sight, helps with quicker target acquisition. Best paired with tactical frames.</description>
+    <kind>BHP_Underbarrel</kind>
+    <path>UB_tac_Laser</path>
+    <!--=====-->
+    <massFactor>0.13</massFactor>
+    <warmupTimeFactor>-0.2</warmupTimeFactor>
+    <rangeFactor>2</rangeFactor>
+    <!--=====-->
+    <researchPrerequisites>
+      <li>MicroelectronicsBasics</li>
+    </researchPrerequisites>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_UB_TacFlashlight</defName>
+    <label>Underbarrel flashlight</label>
+    <description>Flashlight, blinds enemies and helps with target acquisition. Best paired with tactical frames.</description>
+    <kind>BHP_Underbarrel</kind>
+    <path>UB_tac_Flashlight</path>
+    <!--=====-->
+    <massFactor>0.13</massFactor>
+    <flashlightFactor>true</flashlightFactor>
+    <warmupTimeFactor>-0.1</warmupTimeFactor>
+    <rangeFactor>1</rangeFactor>
+    <!--=====-->
+    <researchPrerequisites>
+      <li>MicroelectronicsBasics</li>
+    </researchPrerequisites>
+    <costList>
+      <Steel>10</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+    <!-- =============================== Muzzle -->
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Muzzle_Compensator</defName>
+    <label>Basic compensator</label>
+    <description>Redirects propellant gasses as they leave the barrel, reducing felt recoil.</description>
+    <kind>BHP_Muzzle</kind>
+    <path>Barrel_Compensator</path>
+    <!--=====-->
+    <massFactor>0.08</massFactor>
+    <AccTouchFactor>0.02</AccTouchFactor>
+    <AccShortFactor>0.02</AccShortFactor>
+    <AccMediumFactor>0.02</AccMediumFactor>
+    <cooldownFactor>-0.1</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Steel>15</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Muzzle_Extended</defName>
+    <label>Basic extension</label>
+    <description>Basic muzzle extension; slightly increases range and damage.</description>
+    <kind>BHP_Muzzle</kind>
+    <path>Barrel_Ext</path>
+    <!--=====-->
+    <dmgMultiplierFactor>0.1</dmgMultiplierFactor>
+    <massFactor>0.05</massFactor>
+    <rangeFactor>2</rangeFactor>
+    <!--=====-->
+    <costList>
+      <Steel>15</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Muzzle_Suppressor</defName>
+    <label>Basic suppressor</label>
+    <description>Basic muzzle suppressor; increases hunting stealth.</description>
+    <kind>BHP_Muzzle</kind>
+    <path>Barrel_Silencer</path>
+    <!--=====-->
+    <dmgMultiplierFactor>-0.1</dmgMultiplierFactor>
+    <massFactor>0.06</massFactor>
+    <HuntingStealthFactor>0.1</HuntingStealthFactor>
+    <!--=====-->
+    <costList>
+      <Steel>15</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Muzzle_TacCompensator</defName>
+    <label>Tactical compensator</label>
+    <description>Redirects propellant gasses as they leave the barrel, reducing felt recoil.</description>
+    <kind>BHP_Muzzle</kind>
+    <path>Barrel_tac_Compensator</path>
+    <!--=====-->
+    <massFactor>0.1</massFactor>
+    <AccTouchFactor>0.03</AccTouchFactor>
+    <AccShortFactor>0.03</AccShortFactor>
+    <AccMediumFactor>0.03</AccMediumFactor>
+    <cooldownFactor>-0.2</cooldownFactor>
+    <!--=====-->
+    <costList>
+      <Steel>20</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Muzzle_TacExtended</defName>
+    <label>Tactical extension</label>
+    <description>Tactical muzzle extension; slightly increases range and damage.</description>
+    <kind>BHP_Muzzle</kind>
+    <path>Barrel_tac_Extended</path>
+    <!--=====-->
+    <dmgMultiplierFactor>0.1</dmgMultiplierFactor>
+    <massFactor>0.08</massFactor>
+    <rangeFactor>4</rangeFactor>
+    <!--=====-->
+    <costList>
+      <Steel>20</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+  <ModularWeapons.ModularPartDef>
+    <defName>BHP_Muzzle_TacSuppressor</defName>
+    <label>Tactical suppressor</label>
+    <description>Tactical muzzle suppressor; increases hunting stealth.</description>
+    <kind>BHP_Muzzle</kind>
+    <path>Barrel_tac_Suppressor</path>
+    <!--=====-->
+    <massFactor>0.08</massFactor>
+    <HuntingStealthFactor>0.2</HuntingStealthFactor>
+    <!--=====-->
+    <costList>
+      <Steel>20</Steel>
+    </costList>
+  </ModularWeapons.ModularPartDef>
+
+</Defs>

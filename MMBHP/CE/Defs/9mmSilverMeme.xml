@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+<!-- ==================== Fleck & filth ==================== -->
+
+	<FleckDef ParentName="CE_CasingFleckBase">
+		<defName>Fleck_SHP_PistolAmmoCasings</defName>
+		<graphicData>
+			<texPath>Misc/Fleck_SHP_Casing</texPath>
+			<renderInstanced>true</renderInstanced>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<solidTime>3.0</solidTime>
+		<fadeOutTime>0.2</fadeOutTime>
+		<landSound>Sound_Impact_SilverRush</landSound>
+		<collide>true</collide>
+		<fleckSystemClass>CombatExtended.FleckSystem_Casing</fleckSystemClass>
+		<acceleration>(0,0,-5.5)</acceleration>
+	</FleckDef>
+
+    <ThingDef ParentName="BaseFilth_CE">
+        <defName>Filth_SHP_Casings</defName>
+        <label>Silver coins</label>
+        <graphicData>
+            <texPath>Misc/SHP_Casings</texPath>
+        </graphicData>
+    </ThingDef>
+
+<!-- ==================== Category defs ==================== -->
+
+	<CombatExtended.AmmoCategoryDef>
+		<defName>SilvertipHP</defName>
+		<label>Silver hollow point</label>
+		<labelShort>SHP</labelShort>
+		<description>A hollow tip with a lead core/tip. Makes for an expensive, poor preforming projectile compared to lead. Due to the alloy of silver used it will probably not fare well against the supernatural.</description>
+	</CombatExtended.AmmoCategoryDef>
+
+	<ThingCategoryDef>
+		<defName>Ammo9x19mmParaSilver</defName>
+		<label>9x19mm Parabellum + SHP</label>
+		<parent>AmmoPistols</parent>
+		<iconPath>UI/Icons/ThingCategories/CaliberPistol</iconPath>
+	</ThingCategoryDef>
+
+	<!-- ==================== AmmoSet ========================== -->
+
+	<CombatExtended.AmmoSetDef>
+		<defName>AmmoSet_9x19mmParaSilver</defName>
+		<label>9x19mm Para + Silvertip</label>
+		<ammoTypes>
+			<Ammo_9x19mmPara_FMJ>Bullet_9x19mmPara_FMJ</Ammo_9x19mmPara_FMJ>
+			<Ammo_9x19mmPara_AP>Bullet_9x19mmPara_AP</Ammo_9x19mmPara_AP>
+			<Ammo_9x19mmPara_HP>Bullet_9x19mmPara_HP</Ammo_9x19mmPara_HP>
+            <Ammo_9x19mmPara_SHP>Bullet_9x19mmPara_SHP</Ammo_9x19mmPara_SHP>
+		</ammoTypes>
+		<similarTo>AmmoSet_Pistol</similarTo>
+	</CombatExtended.AmmoSetDef>
+
+	<!-- ==================== Ammo ========================== -->
+
+	<ThingDef Class="CombatExtended.AmmoDef" ParentName="9x19mmParaBase">
+        <description>A +P+ hollow point filled with silver. Leaves behind sliver on impact and ejects minted coins.\n\nThis outlandish weapon and ammo is theorized by the Ordo Historia to be an ultratech tinkering, used as a gift for eccentric aristocrats.</description>
+		<defName>Ammo_9x19mmPara_SHP</defName>
+		<label>9x19mm Para (SHP)</label>
+		<statBases>
+			<MarketValue>0.18</MarketValue>
+			<Mass>0.017</Mass>
+			<Bulk>0.01</Bulk>
+		</statBases>
+		<tradeTags>
+			<li>CE_AutoEnableTrade</li>
+			<li>CE_AutoEnableCrafting</li>
+		</tradeTags>
+		<thingCategories>
+			<li>Ammo9x19mmParaSilver</li>
+		</thingCategories>
+		<graphicData>
+			<texPath>Ammo/PS</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+		</graphicData>
+		<ammoClass>SilvertipHP</ammoClass>
+		<cookOffProjectile>Bullet_9x19mmPara_SHP</cookOffProjectile>
+	</ThingDef>
+
+	<!-- ================== Projectiles ================== -->
+
+	<ThingDef ParentName="Base9x19mmParaBullet">
+		<defName>Bullet_9x19mmPara_SHP</defName>
+		<label>9mm Para bullet (SHP)</label>
+		<projectile Class="CombatExtended.ProjectilePropertiesCE">
+            <speed>86</speed>
+			<damageAmountBase>18</damageAmountBase>
+			<armorPenetrationSharp>3</armorPenetrationSharp>
+			<armorPenetrationBlunt>21.74</armorPenetrationBlunt>
+            <preExplosionSpawnChance>1</preExplosionSpawnChance>
+			<preExplosionSpawnThingDef>Silver</preExplosionSpawnThingDef>
+			<casingMoteDefname>Fleck_SHP_PistolAmmoCasings</casingMoteDefname>
+			<casingFilthDefname>Filth_SHP_Casings</casingFilthDefname>
+		</projectile>
+	</ThingDef>
+
+	<!-- ==================== Recipes ========================== -->
+
+	<RecipeDef ParentName="AmmoRecipeBase">
+		<defName>MakeAmmo_9x19mmPara_SHP</defName>
+		<label>make 9x19mm Parabellum +P+ (SHP) cartridge x500</label>
+		<description>Craft 500 9x19mm Parabellum +P+ (SHP) cartridges.</description>
+		<jobString>Making 9x19mm Parabellum +P+ (SHP) cartridges.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Steel</li>
+					</thingDefs>
+				</filter>
+				<count>12</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Silver</li>
+					</thingDefs>
+				</filter>
+				<count>50</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Steel</li>
+                <li>Silver</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Ammo_9x19mmPara_SHP>500</Ammo_9x19mmPara_SHP>
+		</products>
+		<workAmount>1400</workAmount>
+	</RecipeDef>
+
+</Defs>
